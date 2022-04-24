@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
+<MudText Class="mb-8">Welcome to your new app, powered by MudBlazor!</MudText>
+<MudAlert Severity="Severity.Normal">You can find documentation and examples on our website here: <MudLink
+        Href="https://mudblazor.com" Typo="Typo.body2" Color="Color.Inherit"><b>www.mudblazor.com</b></MudLink>
+</MudAlert>
+<MudDatePicker Label="MM/dd/yyyy" Editable="true" @bind-Date="date" Mask="@(new DateMask("MM/dd/yyyy"))"
+    DateFormat="MM/dd/yyyy" Placeholder="en-US Date" />
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
+<MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode" />
+
+<MudText Class="ma-4">This is an example text!</MudText>
+
+@code {
+
+    private MudTheme _theme = new();
+
+    private bool _isDarkMode;
+
+    DateTime? date = DateTime.Today;
+}
